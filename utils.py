@@ -186,31 +186,7 @@ def get_model_tokenizer(root_dir, all_config, use_custom_module=False):
         config.hidden_size = 768
         config.tie_word_embeddings = True
         log_c(config)
-#         config = {
-#   "attn_mode": "chunk",
-#   "bos_token_id": 1,
-#   "eos_token_id": 2,
-#   "expand_k": 0.5,
-#   "expand_v": 1,
-#   "fuse_cross_entropy": true,
-#   "fuse_norm": true,
-#   "hidden_act": "swish",
-#   "hidden_ratio": 4,
-#   "hidden_size": 1024,
-#   "initializer_range": 0.02,
-#   "intermediate_size": null,
-#   "max_position_embeddings": 2048,
-#   "model_type": "gla",
-#   "num_heads": 4,
-#   "num_hidden_layers": 24,
-#   "rms_norm_eps": 1e-06,
-#   "tie_word_embeddings": true,
-#   "transformers_version": "4.40.0",
-#   "use_cache": true,
-#   "use_gk": true,
-#   "use_gv": false,
-#   "vocab_size": 32000
-# }
+
         model = GLAForCausalLM(config).to(device).to(torch.bfloat16) 
  
     if "hgrn" in model_path.lower():
@@ -317,12 +293,7 @@ class CustomDatamodule(pl.LightningDataModule):
         self.root_dir = root_dir
         self.tokenizer = tokenizer
         self.prepare_data_per_node = True
-        # self.dataset_kwargs = {'nworkers': self.cfg.data_cfg.nworkers}
-        # self.dataset_kwargs = {"max_seq_length": self.cfg.dataset.max_seq_length, "cluster_batch": self.cfg.dataset.cluster_batch}
-        # if "longbench" in self.cfg.dataset.module.lower() and self.cfg.dataset.subtask is not None:  # TODO: Fix this, merge subset
-        #     self.dataset_kwargs.update({"subtask": self.cfg.dataset.subtask})
-        #     self.dataset_kwargs.update({"config_path": os.path.join(self.root_dir, self.cfg.dataset.data_path)})
-        
+    
     def load_data_with_root_dir(self, fpath, type='custom',cur_split="train"):
         if not self.root_dir in fpath:
             fpath = os.path.join(self.root_dir, fpath)
@@ -382,8 +353,7 @@ class CustomDatamodule(pl.LightningDataModule):
                     print_c(f"num of train samples: {len(self.train_dataset)}", color='magenta')
                 else:
                     # import pdb;pdb.set_trace()
-                    if len(valid_data) in [4463, 8948, 19713]: valid_data = valid_data.train_test_split(test_size=1000)['test']
-                    # import pdb;pdb.set_trace()
+                  
                     self.valid_dataset = DatasetCLS(content=valid_data, tokenizer=self.tokenizer, split="valid", **self.valid_data_kwargs)
                     print_c(f"num of valid samples: {len(self.valid_dataset)}", color='magenta')
             else: 

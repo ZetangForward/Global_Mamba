@@ -42,7 +42,7 @@ class TaskConfig:
 
         train_path = "MQAR/mqar-v0-standard-512-train.jsonl"
         valid_path = "MQAR/mqar-v0-standard-2k-valid.jsonl"
-        test_path = "MQAR/mqar-v6-k4v8-8k-valid.jsonl"
+        test_path = "MQAR/mqar-v6-valid.jsonl"
 
         if data_dir is not None:
             train_path = os.path.join(data_dir, "train.jsonl")
