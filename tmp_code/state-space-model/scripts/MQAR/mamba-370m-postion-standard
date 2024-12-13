@@ -1,0 +1,43 @@
+export CUDA_VISIBLE_DEVICES=0,1
+mn=mamba-370m
+en=mamba-370m-hf-position-standard-8e-4
+num_devices=$(echo $CUDA_VISIBLE_DEVICES | tr ',' '\n' | wc -l)
+random_port=$(( (RANDOM % 10000) + 1024 ))
+ckpt_dir=/nvme1/zecheng/ckpt/$en/$en/checkpoints
+model_path=${ckpt_dir}/last.ckpt
+torchrun --nnode=1 --nproc_per_node=${num_devices} --master_port ${random_port} src/train_dev2.py \
+    -mn $mn \
+    -pn h20 \
+    -en $en\
+    -dn mqar \
+    --node_num 1 \
+    --device_num ${num_devices} \
+    --nworkers 0 \
+    --state train \
+    --lr_rate 8e-4 \
+    --train_strategy "ddp" \
+    --monitor_metric "valid_lm_loss" \
+    --train_batch_size 94 \
+    --val_batch_size 94 \
+    --max_epochs 30 \
+    --version $en \
+    --data_dir /nvme/ywj/data/v0-standard \
+    --ckpt_path /nvme/ywj/ckpt/mamba-370m-hf-position-standard-3e-3/mamba-370m-hf-position-standard-3e-3/checkpoints/epoch=16-step=24021-valid_lm_loss=9.21.ckpt \
+
+# --module_layer 7,15,23,31,39,47  \
+
+
+# python src/test_dev2.py \
+#     -mn $mn \
+#     -en ${en}_1 \
+#     -pn amax_a100 \
+#     -dn mqar \
+#     --state eval \
+#     --version $en \
+#     --val_batch_size 1 \
+#     --inference_mode \
+#     --max_seq_len 16384 \
+#     --nworkers 0 \
+#     --ckpt_path ${model_path} \
+#     --data_dir /nvme1/zecheng/data/MQAR/analysis/position-standard/v0-standard;
+    

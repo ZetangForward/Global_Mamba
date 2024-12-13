@@ -1,0 +1,15 @@
+dataset:
+  data_path: "longbench/data/"
+  processed_data_path: 
+  max_seq_length: 32000
+  module: 'custom_dataset.longbench_ywj' # Custom dataset module path
+  class_name: 'LongbenchDataset'  # dataset class name
+  nworkers: 4
+  pin_memory: False
+  inference_mode: True
+  cluster_batch: False
+  subtask: ["narrativeqa", "qasper", "multifieldqa_en", "hotpotqa", "2wikimqa", "musique", "gov_report",  "qmsum" ,\
+                    "multi_news", "trec", "triviaqa", "samsum", "passage_count", "passage_retrieval_en"]
+
+other_cfgs: 
+  testing_max_ctx: 32000

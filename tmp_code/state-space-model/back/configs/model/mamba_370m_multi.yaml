@@ -1,0 +1,11 @@
+model_name_or_path: "mamba-370m-hf"
+tokenizer_name_or_path: "mamba-370m-hf"
+ckpt_path: "/public/home/ljt/tzc/ckpt/mamba_370m_slimpajama_1Btoken/mamba-multi-pretraining/checkpoints/model.bin"
+use_custom_module: True
+load_model_state_dict: True
+use_relative_position: False
+use_abs_position: False
+max_position_embeddings: 16384
+conv1d_configs:
+  kernel_sizes: [2, 4, 8, 16, 32, 64]
+

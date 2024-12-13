@@ -1,0 +1,15 @@
+dataset:
+  data_path: "MemoryRecall"
+  processed_data_path: "ZeroSCROLLS/all_testing_data.pkl"
+  ctx_len: 10000
+  subsets: ['gov_report', 'summ_screen_fd', 'qmsum', 'qasper', 'narrative_qa', 'quality', 'musique', 'squality', 'space_digest','book_sum_sort']
+  nworkers: 12
+  pin_memory: False
+  inference_mode: True
+  cluster_batch: False
+
+other_cfgs: 
+  max_generation_length: 256
+
+
+  

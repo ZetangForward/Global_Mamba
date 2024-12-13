@@ -1,0 +1,4 @@
+model_name_or_path: "open_llama_3b_v2"
+ckpt_path: "/nvme/hf_models/open_llama_3b_v2/pytorch_model.bin"
+load_model_state_dict: True
+tokenizer_name_or_path: "open_llama_3b_v2"

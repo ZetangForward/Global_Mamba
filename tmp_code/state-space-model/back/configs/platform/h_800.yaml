@@ -1,0 +1,5 @@
+name: "光年之外 H800"
+hf_model_path: "/aifs4su/ziliwang/txw/InternLM/zecheng/hf_models"
+dataset_path: "/aifs4su/ziliwang/txw/InternLM/zecheng/data"
+exp_path: "/aifs4su/ziliwang/txw/InternLM/zecheng"
+result_path: "/aifs4su/ziliwang/txw/InternLM/zecheng/evaluation"

@@ -1,0 +1,5 @@
+name: "amax_3090"
+hf_model_path: "/opt/data/private/hf_models"
+dataset_path: "/opt/data/private/zecheng/data/"
+exp_path: "/opt/data/private/zecheng/ckpt"
+result_path: "/opt/data/private/zecheng/evaluation"

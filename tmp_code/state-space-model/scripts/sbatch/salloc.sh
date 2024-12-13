@@ -1,0 +1,1 @@
+salloc -N 1 -n 8 -t 720:00:00 -p hitsz_mzhang

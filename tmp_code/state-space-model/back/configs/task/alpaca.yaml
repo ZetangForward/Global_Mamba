@@ -1,0 +1,15 @@
+dataset:
+  data_path: "alpaca-cleaned/alpaca_data_cleaned.json"
+  processed_data_path: null
+  module: 'custom_dataset.simplepajama' # Custom dataset module path
+  class_name: 'SimplepajamaDataset'  # dataset class name
+  max_seq_length: 512
+  nworkers: 12
+  train_batch_size: 8
+  val_batch_size: 8
+  pin_memory: False
+  inference_mode: False
+  cluster_batch: True
+
+other_cfgs: null
+  

@@ -1,0 +1,17 @@
+dataset:
+  data_path: "ZeroSCROLLS"
+  processed_data_path: "ZeroSCROLLS/all_testing_data.pkl"
+  max_seq_length: 10000
+  module: 'custom_dataset.zero_scroll' # Custom dataset module path
+  class_name: 'ZeroScrollDataset'  # dataset class name
+  subsets: ['gov_report', 'summ_screen_fd', 'qmsum', 'qasper', 'narrative_qa', 'quality', 'musique', 'squality', 'space_digest','book_sum_sort']
+  nworkers: 12
+  pin_memory: False
+  inference_mode: True
+  cluster_batch: False
+
+other_cfgs: 
+  max_generation_length: 256
+
+
+  

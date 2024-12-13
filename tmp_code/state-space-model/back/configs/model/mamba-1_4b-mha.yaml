@@ -1,0 +1,13 @@
+model_name_or_path: "mamba-1.4b-hf"
+tokenizer_name_or_path: "mamba-1.4b-hf"
+ckpt_path: "/nvme/hf_models/mamba-1.4b-hf/pytorch_model.bin"
+load_model_state_dict: False
+use_relative_position: False
+use_abs_position: False
+use_custom_module: True
+use_multi_head: True
+max_position_embeddings: 16384
+
+multi_head_config:
+  num_head: 8
+  linear_free_multi_head: True

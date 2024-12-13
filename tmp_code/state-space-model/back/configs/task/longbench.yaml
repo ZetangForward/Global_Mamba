@@ -1,0 +1,23 @@
+dataset:
+  data_path: "longbench/data"
+  processed_data_path: null
+  max_seq_length: 32000
+  module: 'custom_dataset.longbench' # Custom dataset module path
+  class_name: 'LongBenchDataset'  # dataset class name
+  depth: 0.5
+  key: "The best thing to do in San Francisco is"
+  value: "eat a sandwich and sit in Dolores Park on a sunny day."
+  nworkers: 4
+  pin_memory: False
+  inference_mode: True
+  cluster_batch: False
+
+other_cfgs: 
+  max_generation_length: 48
+  testing_max_ctx: 32000
+
+inference_cfg:
+  save_keys: ['depth', 'ctx_length']
+
+
+  

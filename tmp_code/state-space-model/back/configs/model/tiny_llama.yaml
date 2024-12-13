@@ -1,0 +1,5 @@
+model_name_or_path: "TinyLlama-1.1B"
+ckpt_path: "/nvme/hf_models/TinyLlama-1.1B/pytorch_model.bin"
+load_model_state_dict: True
+use_position: False
+tokenizer_name_or_path: "TinyLlama-1.1B"

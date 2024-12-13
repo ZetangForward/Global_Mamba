@@ -1,0 +1,5 @@
+name: "amax_a100"
+hf_model_path: "/nvme/hf_models"
+dataset_path: "/nvme/zecheng/data"
+exp_path: "/nvme/zecheng/ckpt"
+result_path: "/nvme/zecheng/evaluation"

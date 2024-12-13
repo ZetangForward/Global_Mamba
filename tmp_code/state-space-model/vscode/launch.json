@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "mamba_analysis",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/nvme/zecheng/modelzipper/projects/state-space-model/mamba/analysis.py",
+            "console": "integratedTerminal",
+            "cwd": "/nvme/zecheng/modelzipper/projects/state-space-model",
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "1"
+            },
+            "python": "/home/amax/anaconda3/envs/zecheng/bin/python",
+            "justMyCode": false,
+        }
+    ]
+}
