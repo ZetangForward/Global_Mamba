@@ -1,0 +1,5 @@
+Will not apply HSTS. The HSTS database must be a regular and non-world-writable file.
+ERROR: could not open HSTS store at '/home/amax/.wget-hsts'. HSTS will be disabled.
+--2024-08-28 20:25:28--  https://sub03-hkexc9d6cxd6behn.z02.azurefd.net/link/3NloMGy4w3NWeHqf?newclash=2
+Connecting to 127.0.0.1:7650... connected.
+Unable to establish SSL connection.

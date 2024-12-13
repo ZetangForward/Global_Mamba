@@ -1,0 +1,22 @@
+exp_task: &exp_task "passkey_search"
+state: &state "test"
+model_name: &model_name "mamba-1_4b"
+mark: &mark 1
+
+defaults:
+  - _self_
+  - platform: "amax_a100"
+  - task: *exp_task
+  - model: *model_name  # use_relative_position | use_abs_position | load_model_state_dict
+
+hydra:
+  job:
+    name: hydra_${exp_task}
+  run:
+    dir: ./runs/${exp_task}-${model_name}/version_${mark}/${hydra.job.name}
+
+experiment:
+  seed: 27
+  results_save_dir: ${exp_task}-${model_name}-${mark}/results
+  device_num: 1
+  node_num: 1
