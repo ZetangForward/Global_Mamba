@@ -187,7 +187,7 @@ class TaskConfig:
                 {
                     "split": "test",
                     "data_name": "slim_pajama",
-                    "data_path": "/mnt/petrelfs/tangzecheng/local_data/slimpajama-processed/processed_data_20488",
+                    "data_path": "/mnt/petrelfs/tangzecheng/local_data/slimpajama-processed/processed_data_2048",
                     "module": 'custom_dataset.slimpajama',
                     "processed_data_path": None,
                     "dataset_class_name": 'Slimpajama',

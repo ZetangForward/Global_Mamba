@@ -369,7 +369,9 @@ class CustomDatamodule(pl.LightningDataModule):
                     content = self.load_data_with_root_dir(data_cfg.processed_data_path,cur_split=cur_split)
                 else:
                     assert "type" in data_cfg, "must define type in data_cfg ..."
-                    if data_cfg.type.lower() in ["hf", "pg19"]: content = self.load_data_with_root_dir(data_cfg.data_path, type=data_cfg.type,cur_split=cur_split)
+                    if data_cfg.type.lower() in ["hf", "pg19"]: 
+                        print_c(data_cfg.data_path)
+                        content = self.load_data_with_root_dir(data_cfg.data_path, type=data_cfg.type,cur_split=cur_split)
                     else: content = auto_read_data(os.path.join(self.root_dir, data_cfg.data_path))
                     
                 extra_config = {"max_seq_length": data_cfg.max_seq_length, "cluster_batch": data_cfg.cluster_batch, 
