@@ -13,7 +13,7 @@ torchrun --nnode=1 --nproc_per_node=${num_devices} --master_port ${random_port} 
     --every_n_train_steps 400 \
     --train_batch_size 6 \
     --val_check_interval 400 \
-    --ckpt_path /nvme1/zecheng/ckpt/pythia-410m-hf-2048-fromsk-15b/version_1/checkpoints/epoch=4-step=49600-valid_lm_loss=3.10.ckpt \
+    --ckpt_path /nvme1/zecheng/ckpt/pythia-410m-hf-2048-fromsk-15b/version_1/checkpoints/epoch=4-step=49600-valid_lm_loss=3.10.ckpt;
 
     # --ckpt_path /nvme1/zecheng/ckpt/pythia-160m-hf-2048-fromsk/version_1/checkpoints/last.ckpt;
     
