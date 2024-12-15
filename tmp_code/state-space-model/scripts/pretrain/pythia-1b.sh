@@ -7,14 +7,13 @@ torchrun --nnode=1 --nproc_per_node=${num_devices} --master_port ${random_port} 
     -en pythia-1b-hf-2048-fromsk-15b \
     -dn slimpajama \
     --node_num 1 --max_seq_length 2048 --device_num ${num_devices} \
-    --state train --save_top_k 5 --nworkers 0 --train_strategy "ddp" \
-    --monitor_metric "valid_lm_loss" --accumulate_grad_batches 20 --max_epochs 10 \
+    --state train --save_top_k 5 --nworkers 0 --train_strategy "deepspeed" \
+    --monitor_metric "valid_lm_loss" --accumulate_grad_batches 2 --max_epochs 10 \
     --lr_rate 1e-4 \
     --every_n_train_steps 400 \
-    --train_batch_size 2 \
-    --val_check_interval 400;
-
-    # --ckpt_path /nvme1/zecheng/ckpt/pythia-160m-hf-2048-fromsk/version_1/checkpoints/last.ckpt;
+    --train_batch_size 18 \
+    --val_check_interval 400 \
+    --ckpt_path /mnt/petrelfs/tangzecheng/local_ckpt/pythia-1b-hf-2048-fromsk-15b/version_1/checkpoints/last.ckpt;
     
     
     # \
